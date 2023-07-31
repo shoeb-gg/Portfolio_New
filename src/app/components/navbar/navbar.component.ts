@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
     constructor() {
-        // setTimeout(() => {
-        //     this.scrollTrigger(1);
-        // }, 200);
+        setTimeout(() => {
+            this.scrollTrigger(1);
+        }, 200);
     }
     scrollTrigger(screenNum: number) {
         window.scrollTo({ top: screen.height * screenNum, behavior: 'smooth' });

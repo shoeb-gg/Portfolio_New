@@ -1,10 +1,33 @@
 <div class="flex flex-col space-y-5 h-full">
     <div class="w-full h-1/2 flex space-x-5">
-        <div data-aos="zoom-in-right" data-aos-duration="700" class="bg-card-background text-white rounded-2xl p-5 w-2/3 h-full card-cust">
-            <div>aboutMe()</div>
+        <div
+            data-aos="zoom-in-right"
+            data-aos-duration="700"
+            class="bg-card-background text-white rounded-2xl p-5 w-2/3 h-full card-cust flex flex-col justify-between"
+        >
+            <div class="text-2xl leading-4">
+                <span class="text-violet-400"> aboutMe( )</span>
+                <span class="text-pink-300"> &#123;</span>
+            </div>
+            <div class="text-lg py-2 pl-5 text-justify leading-6">
+                I am a passionate and self-assured Full Stack Developer with over 2+ years of hands-on experience. Armed with a
+                <span class="text-cyan-300">B.Sc. in Computer Science,</span> my expertise lies in crafting remarkable web and hybrid mobile
+                applications. I take pride in my problem-solving abilities, which empower me to tackle challenges head-on. My insatiable
+                thirst for knowledge drives me to continuously learn and grow in the ever-evolving tech landscape. On the
+                <b class="text-red-400 font-semibold">frontend</b>, I confidently work with
+                <span class="text-red-400">Angular Framework, RxJs, TailwindCSS, and Ionic,</span>
+                while on the <b class="text-yellow-200 font-semibold">backend</b>, I excel in
+                <span class="text-yellow-200">NodeJs, NestJs, ExpressJs, and Prisma.</span>
+                My prowess extends to <b class="text-green-300 font-semibold">database</b> management with
+                <span class="text-green-300"> MongoDB and PostgreSQL,</span>
+                and I am well-versed in Git & Github. Let's create exceptional digital experiences together!
+            </div>
+            <div class="text-2xl leading-4 text-pink-300">&#125;</div>
         </div>
 
-        <div class="w-1/3 h-full bg-blue-950"></div>
+        <div data-aos="zoom-in-left" data-aos-duration="800" class="w-1/3 h-full flex items-center justify-center">
+            <app-lottie [fileName]="'about-me'" [height]="'325'"></app-lottie>
+        </div>
     </div>
 
     <div class="w-full h-1/2 flex space-x-5">
