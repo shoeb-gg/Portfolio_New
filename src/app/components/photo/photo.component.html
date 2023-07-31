@@ -1,16 +1,24 @@
 <div class="flex flex-col space-y-5 h-full">
-    <div class="w-full p-5 bg-card-background rounded-2xl flex justify-center items-center grow">
+    <div
+        data-aos="zoom-in-left"
+        data-aos-duration="800"
+        class="w-full p-5 bg-card-background rounded-2xl flex justify-center items-center grow card-cust"
+    >
         <img class="rounded-2xl" src="assets/my-photo.png" alt="" />
     </div>
 
-    <div class="w-full p-5 bg-card-background rounded-2xl flex flex-col justify-center items-center grow sapce-y-2">
-        <div class="w-full text-white font-medium flex justify-between items-center">
+    <div
+        data-aos="zoom-in-left"
+        data-aos-duration="800"
+        class="w-full p-5 bg-card-background rounded-2xl flex flex-col justify-between grow sapce-y-2 card-cust"
+    >
+        <div class="w-full text-white text-xl font-medium flex justify-between items-center">
             <span>Based in:</span>
             <span>Dhaka, Bangladesh</span>
         </div>
         <div class="w-full text-white flex justify-evenly items-center">
-            <app-lottie [fileName]="'location'" [height]="'112'"></app-lottie>
-            <app-lottie [fileName]="'bangladesh'" [height]="'110'"></app-lottie>
+            <app-lottie [fileName]="'location'"></app-lottie>
+            <app-lottie [fileName]="'bangladesh'"></app-lottie>
         </div>
     </div>
 </div>

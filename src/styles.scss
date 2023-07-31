@@ -46,3 +46,11 @@ body {
     font-family: "Chakra Petch", sans-serif;
     @apply bg-container-black;
 }
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.card-cust {
+    @apply drop-shadow-card hover:drop-shadow-card-hover transition-all;
+}

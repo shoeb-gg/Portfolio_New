@@ -1,0 +1,19 @@
+<div
+    class="text-white w-[4.5rem] h-full rounded-2xl bg-gradient-to-b from-nav-up to-nav-down flex flex-col justify-evenly drop-shadow-nav hover:drop-shadow-nav-hover transition-all"
+>
+    <div
+        (click)="scrollTrigger(0)"
+        class="relative bg-nav-anchor rounded-lg mx-1 cursor-pointer hover:bg-nav-hover text-nav-text hover:text-white flex flex-col justify-center items-center pb-4 drop-shadow-anchor transition-all"
+    >
+        <app-lottie [fileName]="'profile-nav'"></app-lottie>
+        <span class="absolute bottom-0.5 font-medium">Profile</span>
+    </div>
+
+    <div
+        (click)="scrollTrigger(1)"
+        class="relative bg-nav-anchor rounded-lg mx-1 cursor-pointer hover:bg-nav-hover text-nav-text hover:text-white flex flex-col justify-center items-center pt-1 pb-6 drop-shadow-anchor transition-all"
+    >
+        <app-lottie [fileName]="'about-nav'" [height]="'50'"></app-lottie>
+        <span class="absolute bottom-0.5 font-medium">About</span>
+    </div>
+</div>
