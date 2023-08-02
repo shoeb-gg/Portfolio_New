@@ -9,6 +9,7 @@ import { LottieComponent } from '../components/lottie/lottie.component';
 import { NameComponent } from '../components/name/name.component';
 import { PhotoComponent } from '../components/photo/photo.component';
 import { AboutComponent } from '../components/about/about.component';
+import { SkilsComponent } from '../components/skils/skils.component';
 
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
@@ -24,6 +25,7 @@ export function playerFactory() {
         NameComponent,
         PhotoComponent,
         AboutComponent,
+        SkilsComponent,
     ],
     imports: [
         CommonModule,

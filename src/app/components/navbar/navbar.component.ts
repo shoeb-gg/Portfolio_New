@@ -8,10 +8,14 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
     constructor() {
         setTimeout(() => {
-            this.scrollTrigger(1);
+            // this.scrollTrigger('skills');
         }, 200);
     }
-    scrollTrigger(screenNum: number) {
-        window.scrollTo({ top: screen.height * screenNum, behavior: 'smooth' });
+    scrollTrigger(div: string) {
+        document.getElementById(div)!.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest',
+        });
     }
 }
