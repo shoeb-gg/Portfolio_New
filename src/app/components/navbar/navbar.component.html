@@ -24,4 +24,11 @@
         <app-lottie [fileName]="'skills-nav'" [height]="'50'"></app-lottie>
         <span class="absolute bottom-0.5 font-medium">Skills</span>
     </div>
+    <div
+        (click)="scrollTrigger('contact')"
+        class="relative bg-nav-anchor rounded-lg mx-1 cursor-pointer hover:bg-nav-hover text-nav-text hover:text-white flex flex-col justify-center items-center pt-1 pb-5 drop-shadow-anchor transition-all"
+    >
+        <app-lottie [fileName]="'contact'" [height]="'60'"></app-lottie>
+        <span class="absolute bottom-0.5 font-medium">Contact</span>
+    </div>
 </div>
