@@ -5,74 +5,76 @@
     </div>
 
     <div class="flex grow space-x-5">
-        <div
-            data-aos="zoom-in"
-            data-aos-duration="700"
-            class="flex flex-col items-center justify-center space-y-5 pt-8 bg-card-background text-white rounded-2xl p-5 card-cust w-3/4"
-        >
-            <div class="w-4/5">
-                <label class="block ml-1 text-xl font-medium dark:text-white">Name</label>
-                <input
-                    type="text"
-                    class="block w-full p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                />
-            </div>
-
-            <div class="w-4/5">
-                <label class="block ml-1 text-xl font-medium dark:text-white">Email</label>
-                <input
-                    type="text"
-                    class="block w-full p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                />
-            </div>
-
-            <div class="w-4/5">
-                <label class="block ml-1 text-xl font-medium dark:text-white">Message</label>
-                <textarea
-                    matInput
-                    cdkTextareaAutosize
-                    #autosize="cdkTextareaAutosize"
-                    cdkAutosizeMinRows="3"
-                    cdkAutosizeMaxRows="3"
-                    type="text"
-                    class="block w-full p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                ></textarea>
-            </div>
-
-            <div class="w-4/5 flex justify-end pt-1">
-                <button
-                    class="bg-gradient-to-bl transition-all hover:bg-gradient-to-tr from-nav-anchor to-nav-hover rounded-lg text-white py-3 px-8 font-bold text-xl"
+        <div data-aos="zoom-in" data-aos-duration="700" class="grow w-3/4">
+            <div class="rounded-2xl relative h-full card-sp flex justify-center items-center">
+                <div
+                    class="flex flex-col items-center justify-center space-y-5 pt-8 bg-card-background text-white rounded-2xl p-5 w-full h-full"
                 >
-                    Send
-                </button>
+                    <div class="w-4/5">
+                        <label class="block ml-1 text-xl font-medium dark:text-white">Name</label>
+                        <input
+                            type="text"
+                            class="block w-full p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                        />
+                    </div>
+
+                    <div class="w-4/5">
+                        <label class="block ml-1 text-xl font-medium dark:text-white">Email</label>
+                        <input
+                            type="text"
+                            class="block w-full p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                        />
+                    </div>
+
+                    <div class="w-4/5">
+                        <label class="block ml-1 text-xl font-medium dark:text-white">Message</label>
+                        <textarea
+                            matInput
+                            cdkTextareaAutosize
+                            #autosize="cdkTextareaAutosize"
+                            cdkAutosizeMinRows="3"
+                            cdkAutosizeMaxRows="3"
+                            type="text"
+                            class="block w-full p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                        ></textarea>
+                    </div>
+
+                    <div class="w-4/5 flex justify-end pt-1">
+                        <button
+                            class="bg-gradient-to-bl transition-all hover:bg-gradient-to-tr from-nav-anchor to-nav-hover rounded-lg text-white py-3 px-8 font-bold text-xl"
+                        >
+                            Send
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div
-            data-aos="zoom-in-left"
-            data-aos-duration="700"
-            class="flex flex-col items-center justify-evenly bg-card-background text-white rounded-2xl p-5 card-cust w-1/4"
-        >
-            <a href="mailto:shoeb.ua@gmail.com" class="flex items-center justify-center">
-                <app-lottie [fileName]="'email'" [height]="'80'"></app-lottie>
-                <span class="text-2xl">shoeb.ua@gmail.com</span>
-            </a>
+        <div data-aos="zoom-in-left" data-aos-duration="700" class="grow w-1/4">
+            <div class="rounded-2xl relative h-full card-sp flex justify-center items-center">
+                <div class="flex flex-col items-center justify-evenly bg-card-background text-white rounded-2xl p-5 w-full h-full">
+                    <a href="mailto:shoeb.ua@gmail.com" class="flex items-center justify-center">
+                        <app-lottie [fileName]="'email'" [height]="'80'"></app-lottie>
+                        <span class="text-2xl">shoeb.ua@gmail.com</span>
+                    </a>
 
-            <a href="https://www.linkedin.com/in/shoeb-uddin/" target="_blank">
-                <img class="w-16 animate-bounce-angular" src="assets/images/linkedin.svg"
-            /></a>
+                    <a href="https://www.linkedin.com/in/shoeb-uddin/" target="_blank">
+                        <img class="w-16 animate-bounce-angular" src="assets/images/linkedin.svg"
+                    /></a>
 
-            <a href="https://github.com/shoeb-gg" target="_blank">
-                <img class="w-20 animate-bounce-ionic" src="assets/images/github.svg" />
-            </a>
+                    <a href="https://github.com/shoeb-gg" target="_blank">
+                        <img class="w-20 animate-bounce-ionic" src="assets/images/github.svg" />
+                    </a>
 
-            <a href="https://discord.gg/SSEMJDb8hD" target="_blank">
-                <img class="w-20 animate-bounce-node" src="assets/images/discord.svg"
-            /></a>
+                    <a href="https://discord.gg/SSEMJDb8hD" target="_blank">
+                        <img class="w-20 animate-bounce-node" src="assets/images/discord.svg"
+                    /></a>
 
-            <a href="https://www.facebook.com/honoluluboi/" target="_blank">
-                <img class="w-20 animate-bounce-git" src="assets/images/facebook.svg" />
-            </a>
+                    <a href="https://www.facebook.com/honoluluboi/" target="_blank">
+                        <img class="w-20 animate-bounce-git" src="assets/images/facebook.svg" />
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

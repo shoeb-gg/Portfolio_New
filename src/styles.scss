@@ -51,10 +51,6 @@ body {
     width: 0px;
 }
 
-.card-cust {
-    @apply drop-shadow-card hover:drop-shadow-card-hover transition-all;
-}
-
 .cust-bounce {
     animation: bounce 1s ease infinite;
 }
@@ -80,5 +76,69 @@ body {
     }
     100% {
         transform: scale(1, 1) translateY(0);
+    }
+}
+
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+:root {
+    --clr-1: #4ade80;
+    --clr-2: #2dd4bf;
+    --clr-3: #38bdf8;
+    --clr-4: #818cf8;
+    --clr-5: #c084fc;
+    --clr-6: #f472b6;
+    --clr-7: #f87171;
+    --clr-8: #f8717100;
+    --clr-9: #f8717100;
+    --clr-10: #f8717100;
+}
+
+.card-sp {
+    position: relative;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        z-index: -1;
+        background: conic-gradient(
+            from var(--gradient-angle),
+            var(--clr-1),
+            var(--clr-2),
+            var(--clr-3),
+            var(--clr-4),
+            var(--clr-5),
+            var(--clr-6),
+            var(--clr-7),
+            var(--clr-8),
+            var(--clr-9),
+            var(--clr-10),
+            var(--clr-9),
+            var(--clr-8),
+            var(--clr-7),
+            var(--clr-6),
+            var(--clr-5),
+            var(--clr-4),
+            var(--clr-3),
+            var(--clr-2),
+            var(--clr-1)
+        );
+        border-radius: inherit;
+        animation: rotation 8s linear infinite;
+    }
+}
+
+@keyframes rotation {
+    0% {
+        --gradient-angle: 0deg;
+    }
+    100% {
+        --gradient-angle: 360deg;
     }
 }
