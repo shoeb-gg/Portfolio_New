@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ContainerRoutingModule } from './container-routing.module';
 import { ContainerComponent } from './container.component';
 
-import { LottieComponent } from '../components/lottie/lottie.component';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TextFieldModule } from '@angular/cdk/text-field';
+
+import { LottieComponent } from '../components/lottie/lottie.component';
 
 import { NameComponent } from '../components/name/name.component';
 import { PhotoComponent } from '../components/photo/photo.component';
@@ -34,8 +36,10 @@ export function playerFactory() {
     imports: [
         CommonModule,
         ContainerRoutingModule,
-        LottieModule.forRoot({ player: playerFactory }),
+        ReactiveFormsModule,
+        MatSnackBarModule,
         TextFieldModule,
+        LottieModule.forRoot({ player: playerFactory }),
     ],
     exports: [LottieComponent],
 })

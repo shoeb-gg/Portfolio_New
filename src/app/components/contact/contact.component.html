@@ -7,14 +7,16 @@
     <div class="flex grow space-x-5">
         <div data-aos="zoom-in" data-aos-duration="700" class="grow w-3/4 cust-bounce-hover">
             <div class="rounded-2xl relative h-full card-sp flex justify-center items-center">
-                <div
+                <form
                     class="flex flex-col items-center justify-center space-y-5 pt-8 bg-card-background text-white rounded-2xl p-5 w-full h-full"
+                    [formGroup]="msgForm"
                 >
                     <div class="w-4/5">
                         <label class="block ml-1 text-xl font-medium dark:text-white">Name</label>
                         <input
                             type="text"
                             class="block w-full p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                            formControlName="name"
                         />
                     </div>
 
@@ -23,6 +25,7 @@
                         <input
                             type="text"
                             class="block w-full p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                            formControlName="email"
                         />
                     </div>
 
@@ -36,17 +39,28 @@
                             cdkAutosizeMaxRows="3"
                             type="text"
                             class="block w-full p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                            formControlName="message"
                         ></textarea>
                     </div>
 
                     <div class="w-4/5 flex justify-end pt-1">
                         <button
+                            *ngIf="!msgSent"
+                            (click)="saveMessage()"
                             class="bg-gradient-to-bl transition-all hover:bg-gradient-to-tr from-nav-anchor to-nav-hover rounded-lg text-white py-3 px-8 font-bold text-xl"
                         >
                             Send
                         </button>
+
+                        <div
+                            *ngIf="msgSent"
+                            class="bg-gradient-to-bl transition-all from-nav-anchor to-nav-hover rounded-lg text-white py-2 px-8 font-bold text-xl flex items-center space-x-2"
+                        >
+                            Message Sent
+                            <app-lottie [fileName]="'sent'" [height]="'50'"></app-lottie>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 
