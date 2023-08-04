@@ -57,7 +57,7 @@ body {
 
 .cust-bounce-hover {
     &:hover {
-        @apply animate-bounce-hover;
+        animation: bounce 0.8s linear;
     }
 }
 
