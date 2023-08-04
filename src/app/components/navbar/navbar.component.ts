@@ -6,11 +6,6 @@ import { Component } from '@angular/core';
     styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-    constructor() {
-        setTimeout(() => {
-            // this.scrollTrigger('skills');
-        }, 200);
-    }
     scrollTrigger(div: string) {
         document.getElementById(div)!.scrollIntoView({
             behavior: 'smooth',

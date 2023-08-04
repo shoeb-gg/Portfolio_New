@@ -3,13 +3,34 @@
 }
 
 @keyframes color-change {
+    // 0% {
+    //     color: red;
+    // }
+    // 50% {
+    //     color: blue;
+    // }
+    // 100% {
+    //     color: red;
+    // }
     0% {
-        color: red;
+        color: #4ade80;
+    }
+    10% {
+        color: #2dd4bf;
+    }
+    30% {
+        color: #38bdf8;
     }
     50% {
-        color: blue;
+        color: #818cf8;
+    }
+    58% {
+        color: #c084fc;
+    }
+    65% {
+        color: #f472b6;
     }
     100% {
-        color: red;
+        color: #f87171;
     }
 }

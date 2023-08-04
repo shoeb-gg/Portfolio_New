@@ -41,6 +41,8 @@ module.exports = {
                 "bounce-node": "bounce 1s infinite 0.6s",
                 "bounce-mongo": "bounce 1s infinite 0.75s",
                 "bounce-git": "bounce 1s infinite 0.9s",
+
+                "bounce-hover": "bounce 1s",
             },
         },
     },

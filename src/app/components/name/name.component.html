@@ -1,13 +1,16 @@
 <div class="flex flex-col space-y-5 h-full">
-    <div data-aos="zoom-in-right" data-aos-duration="700" class="grow">
+    <div data-aos="zoom-in-right" data-aos-duration="700" class="grow cust-bounce-hover">
         <div class="rounded-2xl relative h-full card-sp flex justify-center items-center">
-            <div class="bg-card-background text-white rounded-2xl px-5 py-10 flex flex-col justify-evenly h-full w-full">
-                <div class="text-4xl font-medium flex items-end space-x-1 color-change-anim">
+            <div class="bg-card-background text-white rounded-2xl p-10 flex flex-col justify-evenly h-full w-full">
+                <div class="text-6xl font-medium flex items-end space-x-1 color-change-anim">
                     <span>Hi</span>
-                    <app-lottie [fileName]="'hello'" [height]="'50'"></app-lottie>
+                    <app-lottie [fileName]="'hello'" [height]="'60'"></app-lottie>
                 </div>
-                <div class="text-5xl text-center font-bold">this is Shoeb Uddin Ahmed</div>
-                <div class="text-4xl text-end font-semibold">&#60;Full Stack Developer&#47;&#62;</div>
+                <span class="text-5xl text-center font-bold text-teal-200 ml2">this is Shoeb Uddin Ahmed</span>
+                <div class="text-4xl text-end font-semibold text-pink-300">
+                    &#60;<span *ngIf="showSpace">&nbsp;&nbsp;</span>Full Stack Developer<span *ngIf="showSpace">&nbsp;&nbsp;</span
+                    >&#47;&#62;
+                </div>
             </div>
         </div>
     </div>
@@ -16,7 +19,7 @@
         <span
             data-aos="flip-left"
             data-aos-duration="800"
-            class="bg-card-yellow text-black font-bold rounded-2xl p-5 flex flex-col items-center justify-center text-center w-1/3 space-y-2"
+            class="bg-card-yellow text-black font-bold rounded-2xl p-5 flex flex-col items-center justify-center text-center w-1/3 space-y-2 cust-bounce-hover"
         >
             <span class="text-5xl">2+</span>
             <span class="text-3xl">Years Experience</span>
@@ -36,7 +39,7 @@
         <span
             data-aos="flip-right"
             data-aos-duration="800"
-            class="bg-card-green text-white text-3xl font-bold rounded-2xl p-5 flex flex-col items-center justify-center text-center w-1/3 space-y-2"
+            class="bg-card-green text-white text-3xl font-bold rounded-2xl p-5 flex flex-col items-center justify-center text-center w-1/3 space-y-2 cust-bounce-hover"
         >
             <span class="text-5xl">8+</span>
             <span class="text-3xl">Project Contributions</span>
