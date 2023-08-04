@@ -9,7 +9,8 @@ import { MessagesModel } from 'src/models/message.model';
 export class ContactService {
     constructor(private readonly http: HttpClient) {}
 
-    private readonly baseUrl: string = 'http://localhost:1111/api';
+    private readonly baseUrl: string =
+        'https://portfolio-server-ybmt.onrender.com/api';
 
     saveMessage(msg: MessagesModel) {
         return this.http.post(this.baseUrl, msg);
