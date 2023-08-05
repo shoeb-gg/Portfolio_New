@@ -1,0 +1,12 @@
+#circle {
+    background: rgba(251, 255, 24, 0.3);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 99;
+    transform: translate3d(-50%, -50%, 0);
+    transition: transform 1s cubic-bezier(0.02, 1.23, 0.79, 1.08);
+    mix-blend-mode: difference;
+    pointer-events: none;
+}

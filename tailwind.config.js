@@ -16,6 +16,7 @@ module.exports = {
                 green: "#00C39A",
                 yellow: "#FFBF3C",
                 pink: "#FE6D79",
+                "pink-hover": "#ff5967",
             },
             nav: {
                 up: "#00f2fe",
@@ -41,6 +42,9 @@ module.exports = {
                 "bounce-node": "bounce 1s infinite 0.6s",
                 "bounce-mongo": "bounce 1s infinite 0.75s",
                 "bounce-git": "bounce 1s infinite 0.9s",
+            },
+            cursor: {
+                fancy: 'url("assets/cursor.svg") 5 5, auto',
             },
         },
     },
