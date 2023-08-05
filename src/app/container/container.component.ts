@@ -12,6 +12,7 @@ export class ContainerComponent implements AfterViewInit {
         AOS.init({
             delay: 80,
             mirror: true,
+            // disable: 'mobile',
         });
     }
 }
