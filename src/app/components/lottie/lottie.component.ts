@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
