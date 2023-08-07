@@ -12,8 +12,9 @@
                     [formGroup]="msgForm"
                 >
                     <div class="w-11/12 md:w-4/5">
-                        <label class="block ml-1 text-lg md:text-xl font-medium dark:text-white">Name</label>
+                        <label for="name" class="block ml-1 text-lg md:text-xl font-medium dark:text-white cursor-fancy">Name</label>
                         <input
+                            id="name"
                             type="text"
                             class="block w-full p-3 md:p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white cursor-fancy"
                             formControlName="name"
@@ -21,8 +22,9 @@
                     </div>
 
                     <div class="w-11/12 md:w-4/5">
-                        <label class="block ml-1 text-lg md:text-xl font-medium dark:text-white">Email</label>
+                        <label for="email" class="block ml-1 text-lg md:text-xl font-medium dark:text-white cursor-fancy">Email</label>
                         <input
+                            id="email"
                             type="text"
                             class="block w-full p-3 md:p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white cursor-fancy"
                             formControlName="email"
@@ -30,8 +32,9 @@
                     </div>
 
                     <div class="w-11/12 md:w-4/5">
-                        <label class="block ml-1 text-lg md:text-xl font-medium dark:text-white">Message</label>
+                        <label for="message" class="block ml-1 text-lg md:text-xl font-medium dark:text-white cursor-fancy">Message</label>
                         <textarea
+                            id="message"
                             matInput
                             cdkTextareaAutosize
                             #autosize="cdkTextareaAutosize"

@@ -13,17 +13,17 @@ module.exports = {
             },
             card: {
                 background: "#1D1A1D",
-                green: "#00C39A",
+                green: "#00A884",
                 yellow: "#FFBF3C",
-                pink: "#FE6D79",
-                "pink-hover": "#ff5967",
+                pink: "#FE5D6A",
+                "pink-hover": "#E40114",
             },
             nav: {
                 up: "#00f2fe",
-                anchor: "#00b4eb",
+                anchor: "#1AC9FF",
                 down: "#4facfe",
-                hover: "#0a70c9",
-                text: "#003e75",
+                hover: "#0859A1",
+                text: "#002E5C",
             },
         },
         extend: {
