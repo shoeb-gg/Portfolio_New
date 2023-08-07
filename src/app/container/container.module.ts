@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { NgOptimizedImage } from '@angular/common';
+
 import { ContainerRoutingModule } from './container-routing.module';
 import { ContainerComponent } from './container.component';
 
@@ -39,6 +41,7 @@ export function playerFactory() {
         CommonModule,
         ContainerRoutingModule,
         ReactiveFormsModule,
+        NgOptimizedImage,
         MatSnackBarModule,
         TextFieldModule,
         LottieModule.forRoot({ player: playerFactory }),
