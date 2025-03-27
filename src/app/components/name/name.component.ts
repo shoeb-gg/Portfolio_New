@@ -6,6 +6,7 @@ import anime from 'animejs/lib/anime.es.js';
     selector: 'app-name',
     templateUrl: './name.component.html',
     styleUrls: ['./name.component.scss'],
+    standalone: false
 })
 export class NameComponent implements AfterViewInit {
     public showSpace = true;

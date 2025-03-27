@@ -6,6 +6,7 @@ import { AnimationOptions } from 'ngx-lottie';
     selector: 'app-lottie',
     templateUrl: './lottie.component.html',
     styleUrls: ['./lottie.component.scss'],
+    standalone: false
 })
 export class LottieComponent implements OnInit {
     @Input() fileName: string;

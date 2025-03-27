@@ -6,6 +6,7 @@ import AOS from 'aos';
     selector: 'app-container',
     templateUrl: './container.component.html',
     styleUrls: ['./container.component.scss'],
+    standalone: false
 })
 export class ContainerComponent implements AfterViewInit {
     ngAfterViewInit(): void {
