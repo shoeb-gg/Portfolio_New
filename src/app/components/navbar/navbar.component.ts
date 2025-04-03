@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
-    standalone: false
+    standalone: false,
 })
 export class NavbarComponent {
     scrollTrigger(div: string) {

@@ -10,7 +10,7 @@ import { ContainerComponent } from './container.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TextFieldModule } from '@angular/cdk/text-field';
 
-import { LottieComponent } from '../components/lottie/lottie.component';
+import { LottieNativeComponent } from '../components/lottie/lottie.component';
 
 import { NameComponent } from '../components/name/name.component';
 import { PhotoComponent } from '../components/photo/photo.component';
@@ -19,16 +19,11 @@ import { SkilsComponent } from '../components/skils/skils.component';
 import { ContactComponent } from '../components/contact/contact.component';
 import { ProjectsComponent } from '../components/projects/projects.component';
 
-import { LottieModule } from 'ngx-lottie';
-import player from 'lottie-web';
-
-export function playerFactory() {
-    return player;
-}
+import { LottieComponent } from 'ngx-lottie';
 
 @NgModule({
     declarations: [
-        LottieComponent,
+        LottieNativeComponent,
         ContainerComponent,
         NameComponent,
         PhotoComponent,
@@ -44,8 +39,8 @@ export function playerFactory() {
         NgOptimizedImage,
         MatSnackBarModule,
         TextFieldModule,
-        LottieModule.forRoot({ player: playerFactory }),
+        LottieComponent,
     ],
-    exports: [LottieComponent],
+    exports: [LottieNativeComponent],
 })
 export class ContainerModule {}
