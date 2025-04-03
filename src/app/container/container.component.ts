@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { afterNextRender, Component } from '@angular/core';
 
 import AOS from 'aos';
 
@@ -6,13 +6,15 @@ import AOS from 'aos';
     selector: 'app-container',
     templateUrl: './container.component.html',
     styleUrls: ['./container.component.scss'],
-    standalone: false
+    standalone: false,
 })
-export class ContainerComponent implements AfterViewInit {
-    ngAfterViewInit(): void {
-        AOS.init({
-            delay: 80,
-            mirror: true,
+export class ContainerComponent {
+    constructor() {
+        afterNextRender(() => {
+            AOS.init({
+                delay: 80,
+                mirror: true,
+            });
         });
     }
 }

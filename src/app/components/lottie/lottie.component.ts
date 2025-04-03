@@ -1,26 +1,45 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    Component,
+    Inject,
+    Input,
+    PLATFORM_ID,
+    afterNextRender,
+} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
-import { AnimationOptions } from 'ngx-lottie';
+import { AnimationOptions, LottieTransferState } from 'ngx-lottie';
 
 @Component({
     selector: 'app-lottie',
     templateUrl: './lottie.component.html',
     styleUrls: ['./lottie.component.scss'],
-    standalone: false
+    standalone: false,
 })
-export class LottieComponent implements OnInit {
+export class LottieNativeComponent {
     @Input() fileName: string;
     @Input() height: string;
     @Input() width: string;
 
     options: AnimationOptions;
 
-    ngOnInit(): void {
-        this.options = {
-            path: `/assets/animations/${this.fileName}.json`,
-        };
+    isBrowser: boolean;
 
-        this.height = `${this.height}px`;
-        this.width = `${this.width}px`;
+    constructor(
+        private lottieTransferState: LottieTransferState,
+        @Inject(PLATFORM_ID) private readonly platformId: Object
+    ) {
+        this.isBrowser = isPlatformBrowser(this.platformId);
+
+        afterNextRender(() => {
+            this.options = {
+                path: `/assets/animations/${this.fileName}.json`,
+                animationData: this.lottieTransferState.get(
+                    `src/assets/animations/${this.fileName}.json`
+                ),
+            };
+
+            this.height = `${this.height}px`;
+            this.width = `${this.width}px`;
+        });
     }
 }

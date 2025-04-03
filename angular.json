@@ -37,9 +37,9 @@
                       "scripts": [],
                       "browser": "src/main.ts",
                       "server": "src/main.server.ts",
-                      "prerender": true,
+                      "outputMode": "server",
                       "ssr": {
-                        "entry": "server.ts"
+                        "entry": "src/server.ts"
                       }
                     },
                     "configurations": {
@@ -59,7 +59,7 @@
                             "outputHashing": "all"
                         },
                         "development": {
-                          "optimization": false,
+                            "optimization": false,
                             "extractLicenses": false,
                             "sourceMap": true,
                             "namedChunks": true
@@ -71,10 +71,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                          "buildTarget": "my-portfolio:build:production"
+                            "buildTarget": "my-portfolio:build:production"
                         },
                         "development": {
-                          "buildTarget": "my-portfolio:build:development"
+                            "buildTarget": "my-portfolio:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                      "buildTarget": "my-portfolio:build"
+                        "buildTarget": "my-portfolio:build"
                     }
                 },
                 "test": {
@@ -103,6 +103,9 @@
         }
     },
     "cli": {
-        "analytics": "cf778dae-8e1e-454b-ae37-ef049b796466"
+        "analytics": "cf778dae-8e1e-454b-ae37-ef049b796466",
+        "cache": {
+          "enabled": false
+        }
     }
 }
