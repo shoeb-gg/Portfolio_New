@@ -1,0 +1,11 @@
+[build]
+  command = "ng build && npm run serve:ssr:my-portfolio"
+  publish = "dist/browser"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/ssr"
+  status = 200

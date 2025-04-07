@@ -17,30 +17,25 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:application",
                     "options": {
-                      "outputPath": {
-                        "base": "dist/my-portfolio"
-                      },
-                      "index": "src/index.html",
-                      "polyfills": [
-                        "zone.js"
-                      ],
-                      "tsConfig": "tsconfig.app.json",
-                      "inlineStyleLanguage": "scss",
-                      "assets": [
-                        "src/favicon.ico",
-                        "src/assets"
-                      ],
-                      "styles": [
-                        "src/styles.scss",
-                        "node_modules/aos/dist/aos.css"
-                      ],
-                      "scripts": [],
-                      "browser": "src/main.ts",
-                      "server": "src/main.server.ts",
-                      "outputMode": "server",
-                      "ssr": {
-                        "entry": "src/server.ts"
-                      }
+                        "outputPath": {
+                            "base": "dist/my-portfolio"
+                        },
+                        "index": "src/index.html",
+                        "polyfills": ["zone.js"],
+                        "tsConfig": "tsconfig.app.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": ["src/favicon.ico", "src/assets"],
+                        "styles": [
+                            "src/styles.scss",
+                            "node_modules/aos/dist/aos.css"
+                        ],
+                        "scripts": [],
+                        "browser": "src/main.ts",
+                        "server": "src/main.server.ts",
+                        "outputMode": "server",
+                        "ssr": {
+                            "entry": "src/server.ts"
+                        }
                     },
                     "configurations": {
                         "production": {
@@ -105,7 +100,7 @@
     "cli": {
         "analytics": "cf778dae-8e1e-454b-ae37-ef049b796466",
         "cache": {
-          "enabled": false
+            "enabled": false
         }
     }
 }
