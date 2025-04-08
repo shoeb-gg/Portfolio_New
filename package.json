@@ -26,6 +26,7 @@
         "@angular/platform-server": "^19.2.4",
         "@angular/router": "^19.2.4",
         "@angular/ssr": "^19.2.5",
+        "@netlify/angular-runtime": "^2.3.1",
         "@types/node": "^22.13.16",
         "animejs": "^3.2.1",
         "aos": "^3.0.0-beta.6",
