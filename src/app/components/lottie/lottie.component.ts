@@ -33,9 +33,6 @@ export class LottieNativeComponent {
         afterNextRender(() => {
             this.options = {
                 path: `/assets/animations/${this.fileName}.json`,
-                animationData: this.lottieTransferState.get(
-                    `src/assets/animations/${this.fileName}.json`
-                ),
             };
 
             this.height = `${this.height}px`;
