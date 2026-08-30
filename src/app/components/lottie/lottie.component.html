@@ -1,7 +1,7 @@
 <div class="inline-block align-top" [style.width.px]="boxWidth" [style.height.px]="boxHeight">
-    @if (isBrowser) {
+    @if (options(); as opts) {
     <ng-lottie
-        [options]="options"
+        [options]="opts"
         [width]="boxWidth + 'px'"
         [height]="boxHeight + 'px'"
         (animationCreated)="onAnimationCreated($event)"

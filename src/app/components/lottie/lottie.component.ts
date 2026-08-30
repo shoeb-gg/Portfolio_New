@@ -1,15 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  Inject,
-  Input,
-  NgZone,
-  OnDestroy,
-  OnInit,
-  PLATFORM_ID,
-  afterNextRender,
-  ChangeDetectionStrategy
-} from '@angular/core';
+import { Component, ElementRef, Input, NgZone, OnDestroy, OnInit, PLATFORM_ID, afterNextRender, ChangeDetectionStrategy, signal, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 import { AnimationOptions, LottieTransferState, LottieComponent } from 'ngx-lottie';
@@ -47,17 +36,26 @@ const ASPECT_RATIO: Record<string, number> = {
     selector: 'app-lottie',
     templateUrl: './lottie.component.html',
     styleUrls: ['./lottie.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [LottieComponent],
 })
 export class LottieNativeComponent implements OnInit, OnDestroy {
+    private lottieTransferState = inject(LottieTransferState);
+    private readonly platformId = inject(PLATFORM_ID);
+    private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+    private readonly zone = inject(NgZone);
+
     @Input() fileName: string;
     /** Height in px. */
     @Input() height: string;
     /** Width in px; when omitted it follows the animation's aspect ratio. */
     @Input() width: string;
 
-    options: AnimationOptions;
+    /**
+     * Set on the first time the box comes near the viewport; ng-lottie only fetches the JSON once
+     * this is non-null, so off-screen animations cost no bandwidth on the initial load.
+     */
+    readonly options = signal<AnimationOptions | null>(null);
 
     /** Final box size, known on the server too, so the layout never shifts. */
     boxWidth = 0;
@@ -66,7 +64,8 @@ export class LottieNativeComponent implements OnInit, OnDestroy {
     isBrowser: boolean;
 
     private animation: AnimationItem | null = null;
-    private observer: IntersectionObserver | null = null;
+    private loadObserver: IntersectionObserver | null = null;
+    private playObserver: IntersectionObserver | null = null;
     private inView = true;
 
     private rafId: number | null = null;
@@ -74,26 +73,13 @@ export class LottieNativeComponent implements OnInit, OnDestroy {
     private lastFrame = -1;
     private lastSlot = -1;
 
-    constructor(
-        private lottieTransferState: LottieTransferState,
-        @Inject(PLATFORM_ID) private readonly platformId: Object,
-        private readonly host: ElementRef<HTMLElement>,
-        private readonly zone: NgZone
-    ) {
+    constructor() {
         this.isBrowser = isPlatformBrowser(this.platformId);
 
         afterNextRender(() => this.observeViewport());
     }
 
     ngOnInit(): void {
-        // Plain data, so it can be set before the first check (setting it after the view was checked
-        // triggered NG0100 in dev mode). The template only renders <ng-lottie> in the browser.
-        this.options = {
-            path: `/assets/animations/${this.fileName}.json`,
-            // We drive playback ourselves (see startLoop) so we can cap the frame rate.
-            autoplay: false,
-        };
-
         this.boxHeight = Number(this.height);
         this.boxWidth = this.width
             ? Number(this.width)
@@ -162,14 +148,41 @@ export class LottieNativeComponent implements OnInit, OnDestroy {
         }
     }
 
-    /** Only animate while (nearly) on screen; ~20 Lotties live on this page. */
+    private loadAnimation(): void {
+        if (!this.options()) {
+            this.options.set({
+                path: `/assets/animations/${this.fileName}.json`,
+                // We drive playback ourselves (see startLoop) so we can cap the frame rate.
+                autoplay: false,
+            });
+        }
+    }
+
+    /**
+     * Two observers with different reach:
+     * - load: fetch the JSON one full screen height before the box arrives (the site is navigated
+     *   with full-screen jumps from the nav bar, so a small margin would fetch too late)
+     * - play: animate only while (nearly) on screen; ~20 Lotties live on this page
+     */
     private observeViewport(): void {
         if (typeof IntersectionObserver === 'undefined') {
+            this.loadAnimation();
             return;
         }
 
         this.zone.runOutsideAngular(() => {
-            this.observer = new IntersectionObserver(
+            this.loadObserver = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        this.loadAnimation();
+                        this.loadObserver?.disconnect();
+                        this.loadObserver = null;
+                    }
+                },
+                { rootMargin: '100% 0px' }
+            );
+
+            this.playObserver = new IntersectionObserver(
                 ([entry]) => {
                     this.inView = entry.isIntersecting;
 
@@ -186,12 +199,14 @@ export class LottieNativeComponent implements OnInit, OnDestroy {
                 { rootMargin: '100px' }
             );
 
-            this.observer.observe(this.host.nativeElement);
+            this.loadObserver.observe(this.host.nativeElement);
+            this.playObserver.observe(this.host.nativeElement);
         });
     }
 
     ngOnDestroy(): void {
         this.stopLoop();
-        this.observer?.disconnect();
+        this.loadObserver?.disconnect();
+        this.playObserver?.disconnect();
     }
 }

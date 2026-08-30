@@ -5,7 +5,7 @@ import { LottieNativeComponent } from '../lottie/lottie.component';
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [LottieNativeComponent],
 })
 export class NavbarComponent {

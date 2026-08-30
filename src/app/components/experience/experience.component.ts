@@ -4,7 +4,7 @@ import { LottieNativeComponent } from '../lottie/lottie.component';
 @Component({
     selector: 'app-experience',
     templateUrl: './experience.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [LottieNativeComponent],
 })
 export class ExperienceComponent {}

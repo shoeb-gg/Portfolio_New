@@ -5,7 +5,7 @@ import { LottieNativeComponent } from '../lottie/lottie.component';
     selector: 'app-name',
     templateUrl: './name.component.html',
     styleUrls: ['./name.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [LottieNativeComponent],
 })
 export class NameComponent {

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 
 import { MessagesModel } from '../../../models/message.model';
 
@@ -7,7 +7,8 @@ import { MessagesModel } from '../../../models/message.model';
     providedIn: 'root',
 })
 export class ContactService {
-    constructor(private readonly http: HttpClient) {}
+    private readonly http = inject(HttpClient);
+
 
     private readonly baseUrl: string =
         'https://portfolio-server-ybmt.onrender.com/api';

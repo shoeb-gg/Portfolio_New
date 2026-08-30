@@ -5,7 +5,7 @@ import { LottieNativeComponent } from '../lottie/lottie.component';
     selector: 'app-about',
     templateUrl: './about.component.html',
     styleUrls: ['./about.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [LottieNativeComponent]
 })
 export class AboutComponent {

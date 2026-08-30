@@ -6,7 +6,7 @@ import { NgOptimizedImage } from '@angular/common';
     selector: 'app-skils',
     templateUrl: './skils.component.html',
     styleUrls: ['./skils.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [LottieNativeComponent, NgOptimizedImage]
 })
 export class SkilsComponent {

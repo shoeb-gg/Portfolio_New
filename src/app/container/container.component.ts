@@ -13,7 +13,7 @@ import { ContactComponent } from '../components/contact/contact.component';
     selector: 'app-container',
     templateUrl: './container.component.html',
     styleUrls: ['./container.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         NameComponent,
         PhotoComponent,

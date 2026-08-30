@@ -5,7 +5,7 @@ import { NgOptimizedImage } from '@angular/common';
     selector: 'app-projects',
     templateUrl: './projects.component.html',
     styleUrls: ['./projects.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [NgOptimizedImage]
 })
 export class ProjectsComponent {

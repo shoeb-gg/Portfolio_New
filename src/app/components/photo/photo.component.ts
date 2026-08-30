@@ -6,7 +6,7 @@ import { LottieNativeComponent } from '../lottie/lottie.component';
     selector: 'app-photo',
     templateUrl: './photo.component.html',
     styleUrls: ['./photo.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [NgOptimizedImage, LottieNativeComponent]
 })
 export class PhotoComponent {}

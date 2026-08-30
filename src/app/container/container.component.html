@@ -6,31 +6,31 @@
     <app-photo class="w-full md:w-1/3 h-auto"></app-photo>
 </section>
 
-@defer (hydrate on viewport) {
+@defer (hydrate on idle) {
     <section id="about" class="flex h-auto md:h-screen p-5 md:pl-24 overflow-x-hidden">
         <app-about class="w-full h-auto"></app-about>
     </section>
 }
 
-@defer (hydrate on viewport) {
+@defer (hydrate on idle) {
     <section id="experience" class="flex md:items-center h-auto md:min-h-screen p-5 md:pl-24 overflow-x-hidden">
         <app-experience class="w-full h-auto"></app-experience>
     </section>
 }
 
-@defer (hydrate on viewport) {
+@defer (hydrate on idle) {
     <section id="skills" class="flex space-x-5 h-auto md:h-screen p-5 md:pl-24">
         <app-skils class="w-full h-auto"></app-skils>
     </section>
 }
 
-@defer (hydrate on viewport) {
+@defer (hydrate on idle) {
     <section id="projects" class="flex space-x-5 h-auto md:h-screen p-5 md:pl-24 overflow-x-hidden">
         <app-projects class="w-full h-auto"></app-projects>
     </section>
 }
 
-@defer (hydrate on viewport) {
+@defer (hydrate on idle) {
     <section id="contact" class="flex space-x-5 h-auto md:h-screen p-5 md:pl-24 overflow-x-hidden">
         <app-contact class="w-full h-auto"></app-contact>
     </section>

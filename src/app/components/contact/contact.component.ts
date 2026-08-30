@@ -1,4 +1,4 @@
-import { Component, NgZone, OnDestroy, ViewChild, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, NgZone, OnDestroy, ViewChild, ChangeDetectionStrategy, signal, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
@@ -15,18 +15,18 @@ import { NgOptimizedImage } from '@angular/common';
     selector: 'app-contact',
     templateUrl: './contact.component.html',
     styleUrls: ['./contact.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [ReactiveFormsModule, CdkTextareaAutosize, LottieNativeComponent, NgOptimizedImage]
 })
 export class ContactComponent implements OnDestroy {
+    private readonly _ngZone = inject(NgZone);
+    private readonly contact = inject(ContactService);
+    private readonly fb = inject(FormBuilder);
+
     private _unsubscribeAll: Subject<void> = new Subject<void>();
     @ViewChild('autosize') autosize: CdkTextareaAutosize;
 
-    constructor(
-        private readonly _ngZone: NgZone,
-        private readonly contact: ContactService,
-        private readonly fb: FormBuilder
-    ) {
+    constructor() {
         this.initForm();
     }
 

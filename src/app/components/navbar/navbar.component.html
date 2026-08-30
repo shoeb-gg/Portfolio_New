@@ -3,6 +3,9 @@
 >
     <div
         (click)="scrollTrigger('profile')"
+        (keyup.enter)="scrollTrigger('profile')"
+        role="button"
+        tabindex="0"
         class="relative h-4/5 md:h-auto bg-nav-anchor rounded-lg md:mx-1 hover:bg-nav-hover text-nav-text hover:text-white flex md:flex-col justify-center items-center md:pb-4 drop-shadow-anchor transition-all"
     >
         <app-lottie [fileName]="'profile-nav'" [height]="'64'"></app-lottie>
@@ -11,6 +14,9 @@
 
     <div
         (click)="scrollTrigger('about')"
+        (keyup.enter)="scrollTrigger('about')"
+        role="button"
+        tabindex="0"
         class="relative h-4/5 md:h-auto bg-nav-anchor rounded-lg md:mx-1 hover:bg-nav-hover text-nav-text hover:text-white flex md:flex-col justify-center items-center md:pt-2 md:pb-6 drop-shadow-anchor transition-all"
     >
         <app-lottie [fileName]="'about-nav'" [height]="'50'" [width]="'64'"></app-lottie>
@@ -19,6 +25,9 @@
 
     <div
         (click)="scrollTrigger('experience')"
+        (keyup.enter)="scrollTrigger('experience')"
+        role="button"
+        tabindex="0"
         class="relative h-4/5 md:h-auto bg-nav-anchor rounded-lg md:mx-1 hover:bg-nav-hover text-nav-text hover:text-white flex md:flex-col justify-center items-center md:pt-1 md:pb-6 drop-shadow-anchor transition-all"
     >
         <app-lottie [fileName]="'download-resume'" [height]="'50'" [width]="'64'"></app-lottie>
@@ -27,6 +36,9 @@
 
     <div
         (click)="scrollTrigger('skills')"
+        (keyup.enter)="scrollTrigger('skills')"
+        role="button"
+        tabindex="0"
         class="relative h-4/5 md:h-auto bg-nav-anchor rounded-lg md:mx-1 hover:bg-nav-hover text-nav-text hover:text-white flex md:flex-col justify-center items-center md:pt-1 md:pb-6 drop-shadow-anchor transition-all"
     >
         <app-lottie [fileName]="'skills-nav'" [height]="'50'" [width]="'64'"></app-lottie>
@@ -35,6 +47,9 @@
 
     <div
         (click)="scrollTrigger('projects')"
+        (keyup.enter)="scrollTrigger('projects')"
+        role="button"
+        tabindex="0"
         class="relative h-4/5 md:h-auto bg-nav-anchor rounded-lg md:mx-1 hover:bg-nav-hover text-nav-text hover:text-white flex md:flex-col justify-center items-center md:pt-1 md:pb-6 drop-shadow-anchor transition-all"
     >
         <app-lottie [fileName]="'projects'" [height]="'50'" [width]="'64'"></app-lottie>
@@ -42,6 +57,9 @@
     </div>
     <div
         (click)="scrollTrigger('contact')"
+        (keyup.enter)="scrollTrigger('contact')"
+        role="button"
+        tabindex="0"
         class="relative h-4/5 md:h-auto bg-nav-anchor rounded-lg md:mx-1 hover:bg-nav-hover text-nav-text hover:text-white flex md:flex-col justify-center items-center md:pb-5 drop-shadow-anchor transition-all"
     >
         <app-lottie [fileName]="'contact'" [height]="'60'" [width]="'64'"></app-lottie>
