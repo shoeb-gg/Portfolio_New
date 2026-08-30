@@ -4,7 +4,6 @@ import {
     provideClientHydration,
     withEventReplay,
 } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
     provideHttpClient,
@@ -26,7 +25,6 @@ import { ContainerModule } from './container/container.module';
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
-        BrowserAnimationsModule,
         AppRoutingModule,
         ContainerModule,
         LottieComponent,
