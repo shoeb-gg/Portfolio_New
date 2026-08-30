@@ -1,4 +1,4 @@
-import { Component, NgZone, OnDestroy, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, NgZone, OnDestroy, ViewChild, ChangeDetectionStrategy, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
@@ -31,9 +31,9 @@ export class ContactComponent implements OnDestroy {
     }
 
     public msgForm: FormGroup;
-    public msgSent: boolean = false;
+    public readonly msgSent = signal(false);
     /** Shown under the form when the message could not be delivered. */
-    public sendFailed: boolean = false;
+    public readonly sendFailed = signal(false);
 
     initForm() {
         this.msgForm = this.fb.group({
@@ -51,7 +51,7 @@ export class ContactComponent implements OnDestroy {
     }
 
     saveMessage() {
-        this.sendFailed = false;
+        this.sendFailed.set(false);
 
         this.contact
             .saveMessage({ ...this.msgForm.value })
@@ -59,13 +59,13 @@ export class ContactComponent implements OnDestroy {
             .subscribe({
                 next: (res) => {
                     if (res) {
-                        this.msgSent = true;
+                        this.msgSent.set(true);
                     } else {
-                        this.sendFailed = true;
+                        this.sendFailed.set(true);
                     }
                 },
                 error: () => {
-                    this.sendFailed = true;
+                    this.sendFailed.set(true);
                 },
             });
     }

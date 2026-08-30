@@ -1,4 +1,4 @@
-import { afterNextRender, Component, ChangeDetectionStrategy } from '@angular/core';
+import { afterNextRender, Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { LottieNativeComponent } from '../lottie/lottie.component';
 
 @Component({
@@ -9,7 +9,7 @@ import { LottieNativeComponent } from '../lottie/lottie.component';
     imports: [LottieNativeComponent],
 })
 export class NameComponent {
-    public showSpace = true;
+    public readonly showSpace = signal(true);
 
     constructor() {
         afterNextRender(() => {
@@ -24,7 +24,7 @@ export class NameComponent {
             );
 
             setInterval(() => {
-                this.showSpace = !this.showSpace;
+                this.showSpace.update((v) => !v);
             }, 700);
         });
     }

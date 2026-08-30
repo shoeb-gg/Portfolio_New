@@ -46,14 +46,14 @@
                     </div>
 
                     <div class="w-11/12 md:w-4/5 flex flex-col-reverse md:flex-row items-end md:items-center justify-end gap-3 pt-1">
-                        @if (sendFailed) {
+                        @if (sendFailed()) {
                             <span class="text-sm text-rose-300 text-right">
                                 Couldn't send right now &mdash; please email me at
                                 <a href="mailto:shoeb.ua@gmail.com" class="underline cursor-fancy">shoeb.ua&#64;gmail.com</a>
                             </span>
                         }
 
-                        @if (!msgSent) {
+                        @if (!msgSent()) {
                             <button
                                 (click)="saveMessage()"
                                 class="bg-gradient-to-bl transition-all hover:bg-gradient-to-tr from-nav-anchor to-nav-hover rounded-lg text-white py-2 md:py-3 px-5 md:px-8 font-semibold md:font-bold text-lg md:text-xl cursor-fancy"
@@ -62,7 +62,7 @@
                             </button>
                         }
 
-                        @if (msgSent) {
+                        @if (msgSent()) {
                             <div
                                 class="bg-gradient-to-bl transition-all from-nav-anchor to-nav-hover rounded-lg text-white py-2 px-8 font-bold text-xl flex items-center space-x-2"
                                 >
