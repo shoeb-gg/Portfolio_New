@@ -1,5 +1,5 @@
 import { Component, NgZone, OnDestroy, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 
@@ -8,13 +8,15 @@ import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 import { Subject } from 'rxjs/internal/Subject';
 
 import { ContactService } from './contact.service';
+import { LottieNativeComponent } from '../lottie/lottie.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
     selector: 'app-contact',
     templateUrl: './contact.component.html',
     styleUrls: ['./contact.component.scss'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    imports: [ReactiveFormsModule, CdkTextareaAutosize, LottieNativeComponent, NgOptimizedImage]
 })
 export class ContactComponent implements OnDestroy {
     private _unsubscribeAll: Subject<void> = new Subject<void>();

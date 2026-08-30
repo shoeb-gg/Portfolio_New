@@ -1,11 +1,12 @@
 import { afterNextRender, Component, ChangeDetectionStrategy } from '@angular/core';
+import { LottieNativeComponent } from '../lottie/lottie.component';
 
 @Component({
     selector: 'app-name',
     templateUrl: './name.component.html',
     styleUrls: ['./name.component.scss'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false,
+    imports: [LottieNativeComponent],
 })
 export class NameComponent {
     public showSpace = true;

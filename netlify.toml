@@ -20,14 +20,14 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Self-hosted fonts never change in place.
-[[headers]]
-  for = "/assets/fonts/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
 # Unhashed assets (Lottie JSON, images, resume): cache a day, serve stale for a week while refreshing.
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+# Self-hosted fonts never change in place (listed after /assets/* so this more specific rule wins).
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

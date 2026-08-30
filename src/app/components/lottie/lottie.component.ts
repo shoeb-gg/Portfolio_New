@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-import { AnimationOptions, LottieTransferState } from 'ngx-lottie';
+import { AnimationOptions, LottieTransferState, LottieComponent } from 'ngx-lottie';
 import type { AnimationItem } from 'lottie-web';
 
 /** Upper bound on how many frames per second any Lottie is drawn. Files below this keep their own rate. */
@@ -48,7 +48,7 @@ const ASPECT_RATIO: Record<string, number> = {
     templateUrl: './lottie.component.html',
     styleUrls: ['./lottie.component.scss'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false,
+    imports: [LottieComponent],
 })
 export class LottieNativeComponent implements OnInit, OnDestroy {
     @Input() fileName: string;
