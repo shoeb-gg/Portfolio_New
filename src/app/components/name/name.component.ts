@@ -1,9 +1,10 @@
-import { afterNextRender, Component } from '@angular/core';
+import { afterNextRender, Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'app-name',
     templateUrl: './name.component.html',
     styleUrls: ['./name.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class NameComponent {

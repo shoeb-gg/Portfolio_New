@@ -10,7 +10,7 @@
                 <form
                     class="flex flex-col items-center justify-center space-y-5 pt-5 md:pt-8 bg-card-background text-white rounded-2xl p-5 w-full h-full"
                     [formGroup]="msgForm"
-                >
+                    >
                     <div class="w-11/12 md:w-4/5">
                         <label for="name" class="block ml-1 text-lg md:text-xl font-medium dark:text-white cursor-fancy">Name</label>
                         <input
@@ -18,7 +18,7 @@
                             type="text"
                             class="block w-full p-3 md:p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white cursor-fancy"
                             formControlName="name"
-                        />
+                            />
                     </div>
 
                     <div class="w-11/12 md:w-4/5">
@@ -28,7 +28,7 @@
                             type="text"
                             class="block w-full p-3 md:p-4 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white cursor-fancy"
                             formControlName="email"
-                        />
+                            />
                     </div>
 
                     <div class="w-11/12 md:w-4/5">
@@ -46,26 +46,30 @@
                     </div>
 
                     <div class="w-11/12 md:w-4/5 flex flex-col-reverse md:flex-row items-end md:items-center justify-end gap-3 pt-1">
-                        <span *ngIf="sendFailed" class="text-sm text-rose-300 text-right">
-                            Couldn't send right now &mdash; please email me at
-                            <a href="mailto:shoeb.ua@gmail.com" class="underline cursor-fancy">shoeb.ua&#64;gmail.com</a>
-                        </span>
+                        @if (sendFailed) {
+                            <span class="text-sm text-rose-300 text-right">
+                                Couldn't send right now &mdash; please email me at
+                                <a href="mailto:shoeb.ua@gmail.com" class="underline cursor-fancy">shoeb.ua&#64;gmail.com</a>
+                            </span>
+                        }
 
-                        <button
-                            *ngIf="!msgSent"
-                            (click)="saveMessage()"
-                            class="bg-gradient-to-bl transition-all hover:bg-gradient-to-tr from-nav-anchor to-nav-hover rounded-lg text-white py-2 md:py-3 px-5 md:px-8 font-semibold md:font-bold text-lg md:text-xl cursor-fancy"
-                        >
-                            Send
-                        </button>
+                        @if (!msgSent) {
+                            <button
+                                (click)="saveMessage()"
+                                class="bg-gradient-to-bl transition-all hover:bg-gradient-to-tr from-nav-anchor to-nav-hover rounded-lg text-white py-2 md:py-3 px-5 md:px-8 font-semibold md:font-bold text-lg md:text-xl cursor-fancy"
+                                >
+                                Send
+                            </button>
+                        }
 
-                        <div
-                            *ngIf="msgSent"
-                            class="bg-gradient-to-bl transition-all from-nav-anchor to-nav-hover rounded-lg text-white py-2 px-8 font-bold text-xl flex items-center space-x-2"
-                        >
-                            Message Sent
-                            <app-lottie [fileName]="'sent'" [height]="'50'"></app-lottie>
-                        </div>
+                        @if (msgSent) {
+                            <div
+                                class="bg-gradient-to-bl transition-all from-nav-anchor to-nav-hover rounded-lg text-white py-2 px-8 font-bold text-xl flex items-center space-x-2"
+                                >
+                                Message Sent
+                                <app-lottie [fileName]="'sent'" [height]="'50'"></app-lottie>
+                            </div>
+                        }
                     </div>
                 </form>
             </div>
@@ -87,7 +91,7 @@
                                 height="64"
                                 width="64"
                                 alt="social icon"
-                            />
+                                />
                         </a>
 
                         <a class="cursor-fancy" href="https://github.com/shoeb-gg" target="_blank">
@@ -97,7 +101,7 @@
                                 height="64"
                                 width="64"
                                 alt="social icon"
-                            />
+                                />
                         </a>
 
                         <a class="cursor-fancy" href="https://discord.gg/SSEMJDb8hD" target="_blank">
@@ -107,7 +111,7 @@
                                 height="64"
                                 width="64"
                                 alt="social icon"
-                            />
+                                />
                         </a>
 
                         <a class="cursor-fancy" href="https://www.facebook.com/honoluluboi/" target="_blank">
@@ -117,7 +121,7 @@
                                 height="64"
                                 width="64"
                                 alt="social icon"
-                            />
+                                />
                         </a>
                     </div>
                 </div>

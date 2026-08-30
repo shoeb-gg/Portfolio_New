@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import {
-    BrowserModule,
-    provideClientHydration,
-    withEventReplay,
+  BrowserModule,
+  provideClientHydration,
+  withEventReplay,
+  withNoIncrementalHydration
 } from '@angular/platform-browser';
 
 import {
@@ -35,7 +36,7 @@ import { ContainerModule } from './container/container.module';
             player: () => import('lottie-web/build/player/lottie_light'),
         }),
 
-        provideClientHydration(withEventReplay()),
+        provideClientHydration(withEventReplay(), withNoIncrementalHydration()),
     ],
 })
 export class AppModule {}

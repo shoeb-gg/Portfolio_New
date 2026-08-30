@@ -1,4 +1,4 @@
-import { Component, NgZone, OnDestroy, ViewChild } from '@angular/core';
+import { Component, NgZone, OnDestroy, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
@@ -13,6 +13,7 @@ import { ContactService } from './contact.service';
     selector: 'app-contact',
     templateUrl: './contact.component.html',
     styleUrls: ['./contact.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ContactComponent implements OnDestroy {

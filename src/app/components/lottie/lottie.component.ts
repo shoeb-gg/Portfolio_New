@@ -1,13 +1,14 @@
 import {
-    Component,
-    ElementRef,
-    Inject,
-    Input,
-    NgZone,
-    OnDestroy,
-    OnInit,
-    PLATFORM_ID,
-    afterNextRender,
+  Component,
+  ElementRef,
+  Inject,
+  Input,
+  NgZone,
+  OnDestroy,
+  OnInit,
+  PLATFORM_ID,
+  afterNextRender,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -21,6 +22,7 @@ const MAX_FPS = 30;
     selector: 'app-lottie',
     templateUrl: './lottie.component.html',
     styleUrls: ['./lottie.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class LottieNativeComponent implements OnInit, OnDestroy {
