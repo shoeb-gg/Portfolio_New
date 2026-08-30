@@ -1,7 +1,6 @@
 import { Component, NgZone, OnDestroy, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 
 import { take } from 'rxjs/internal/operators/take';
@@ -23,14 +22,15 @@ export class ContactComponent implements OnDestroy {
     constructor(
         private readonly _ngZone: NgZone,
         private readonly contact: ContactService,
-        private readonly fb: FormBuilder,
-        private _snackBar: MatSnackBar
+        private readonly fb: FormBuilder
     ) {
         this.initForm();
     }
 
     public msgForm: FormGroup;
     public msgSent: boolean = false;
+    /** Shown under the form when the message could not be delivered. */
+    public sendFailed: boolean = false;
 
     initForm() {
         this.msgForm = this.fb.group({
@@ -48,21 +48,22 @@ export class ContactComponent implements OnDestroy {
     }
 
     saveMessage() {
+        this.sendFailed = false;
+
         this.contact
             .saveMessage({ ...this.msgForm.value })
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((res) => {
-                if (res) {
-                    this.msgSent = true;
-                } else {
-                    this._snackBar.open(
-                        'Error while sending message ',
-                        'close',
-                        {
-                            duration: 5000,
-                        }
-                    );
-                }
+            .subscribe({
+                next: (res) => {
+                    if (res) {
+                        this.msgSent = true;
+                    } else {
+                        this.sendFailed = true;
+                    }
+                },
+                error: () => {
+                    this.sendFailed = true;
+                },
             });
     }
 

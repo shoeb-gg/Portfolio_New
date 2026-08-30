@@ -7,7 +7,6 @@ import { NgOptimizedImage } from '@angular/common';
 import { ContainerRoutingModule } from './container-routing.module';
 import { ContainerComponent } from './container.component';
 
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TextFieldModule } from '@angular/cdk/text-field';
 
 import { LottieNativeComponent } from '../components/lottie/lottie.component';
@@ -39,7 +38,6 @@ import { LottieComponent } from 'ngx-lottie';
         ContainerRoutingModule,
         ReactiveFormsModule,
         NgOptimizedImage,
-        MatSnackBarModule,
         TextFieldModule,
         LottieComponent,
     ],

@@ -35,7 +35,6 @@
                         <label for="message" class="block ml-1 text-lg md:text-xl font-medium dark:text-white cursor-fancy">Message</label>
                         <textarea
                             id="message"
-                            matInput
                             cdkTextareaAutosize
                             #autosize="cdkTextareaAutosize"
                             cdkAutosizeMinRows="3"
@@ -46,7 +45,12 @@
                         ></textarea>
                     </div>
 
-                    <div class="w-11/12 md:w-4/5 flex justify-end pt-1">
+                    <div class="w-11/12 md:w-4/5 flex flex-col-reverse md:flex-row items-end md:items-center justify-end gap-3 pt-1">
+                        <span *ngIf="sendFailed" class="text-sm text-rose-300 text-right">
+                            Couldn't send right now &mdash; please email me at
+                            <a href="mailto:shoeb.ua@gmail.com" class="underline cursor-fancy">shoeb.ua&#64;gmail.com</a>
+                        </span>
+
                         <button
                             *ngIf="!msgSent"
                             (click)="saveMessage()"

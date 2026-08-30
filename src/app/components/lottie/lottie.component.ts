@@ -5,6 +5,7 @@ import {
     Input,
     NgZone,
     OnDestroy,
+    OnInit,
     PLATFORM_ID,
     afterNextRender,
 } from '@angular/core';
@@ -22,7 +23,7 @@ const MAX_FPS = 30;
     styleUrls: ['./lottie.component.scss'],
     standalone: false,
 })
-export class LottieNativeComponent implements OnDestroy {
+export class LottieNativeComponent implements OnInit, OnDestroy {
     @Input() fileName: string;
     @Input() height: string;
     @Input() width: string;
@@ -48,18 +49,20 @@ export class LottieNativeComponent implements OnDestroy {
     ) {
         this.isBrowser = isPlatformBrowser(this.platformId);
 
-        afterNextRender(() => {
-            this.options = {
-                path: `/assets/animations/${this.fileName}.json`,
-                // We drive playback ourselves (see startLoop) so we can cap the frame rate.
-                autoplay: false,
-            };
+        afterNextRender(() => this.observeViewport());
+    }
 
-            this.height = `${this.height}px`;
-            this.width = `${this.width}px`;
+    ngOnInit(): void {
+        // Plain data, so it can be set before the first check (setting it after the view was checked
+        // triggered NG0100 in dev mode). The template only renders <ng-lottie> in the browser.
+        this.options = {
+            path: `/assets/animations/${this.fileName}.json`,
+            // We drive playback ourselves (see startLoop) so we can cap the frame rate.
+            autoplay: false,
+        };
 
-            this.observeViewport();
-        });
+        this.height = `${this.height}px`;
+        this.width = `${this.width}px`;
     }
 
     onAnimationCreated(animation: AnimationItem): void {
