@@ -1,104 +1,34 @@
-<div class="flex flex-col md:space-y-5 h-full">
-    <div class="md:h-[45vh] flex flex-col md:flex-row grow space-y-5 md:space-y-0 space-x-0 md:space-x-5">
-        <div data-aos="zoom-in-right" data-aos-duration="700" class="grow md:w-2/3 cust-bounce-hover">
-            <div class="rounded-2xl relative md:h-full card-sp flex justify-center items-center">
-                <div class="bg-card-background text-white rounded-2xl p-5 h-full flex flex-col justify-evenly">
-                    <div class="text-2xl leading-4">
-                        <span class="text-violet-400"> aboutMe( )</span>
-                        <span class="text-pink-300"> &#123;</span>
-                    </div>
-                    <div class="text-lg py-2 pl-5 text-justify leading-6">
-                        I am a passionate and self-assured Full Stack Developer with over 4+ years of hands-on experience. Armed with a
-                        <span class="text-cyan-300">B.Sc. in Computer Science,</span> my expertise lies in crafting remarkable web and
-                        hybrid mobile applications. I take pride in my problem-solving abilities, which empower me to tackle challenges
-                        head-on. My insatiable thirst for knowledge drives me to continuously learn and grow in the ever-evolving tech
-                        landscape and work with cutting-edge technologies. On the <b>Frontend</b>, I confidently work with
-                        <span class="text-red-400">Angular(v5+), RxJs, TailwindCSS, and Ionic,</span>
-                        while on the <b class="text-yellow-200 font-semibold">Backend</b>, I excel in
-                        <span class="text-yellow-200">NodeJs, NestJs, ExpressJs, and Prisma.</span>
-                        My prowess extends to <b class="text-green-300 font-semibold">Database Management</b> with
-                        <span class="text-green-300"> MongoDB, Azure CosmosDB, MySQL and PostgreSQL.</span> Also I'm used to working with
-                        <b class="text-blue-400 font-semibold">Version Control </b> platforms like
-                        <span class="text-blue-400">Git, Github, Azure DevOps & GitLab.</span> Let's create exceptional digital experiences
-                        together!
-                    </div>
-                    <div class="text-2xl leading-4 text-pink-300">&#125;</div>
+<div class="flex flex-col md:flex-row md:items-center h-full space-y-5 md:space-y-0 space-x-0 md:space-x-5">
+    <div data-aos="zoom-in-right" data-aos-duration="700" class="grow md:w-2/3 cust-bounce-hover">
+        <div class="rounded-2xl relative card-sp flex justify-center items-center">
+            <div class="bg-card-background text-white rounded-2xl p-5 w-full flex flex-col">
+                <div class="text-2xl leading-4">
+                    <span class="text-violet-400"> aboutMe( )</span>
+                    <span class="text-pink-300"> &#123;</span>
                 </div>
+                <div class="text-lg py-2 pl-5 text-justify leading-6">
+                    I'm a Full Stack Engineer with <b>5+ years</b> of hands-on experience and a
+                    <span class="text-cyan-300">B.Sc. in Computer Science</span>.
+                    <b class="text-red-400 font-semibold">Angular</b> and <b class="text-yellow-200 font-semibold">NestJS</b> are my home
+                    turf &mdash; I've shipped with them across health-tech, CRM and enterprise archiving products &mdash; and today I spend
+                    most of my time on <b class="text-yellow-200 font-semibold">backend architecture</b>: designing
+                    <span class="text-yellow-200">NestJS services, event-driven pipelines on Amazon SQS and BullMQ,</span> data models on
+                    <span class="text-green-300">PostgreSQL (Prisma) and MongoDB,</span> and
+                    <b class="text-pink-300 font-semibold">AI-powered features</b> like
+                    <span class="text-pink-300">LLM function calling for natural-language search and automated deal-review pipelines.</span>
+                    On the <b>Frontend</b> I work with
+                    <span class="text-red-400">Angular, RxJS, Signals, TailwindCSS, Ionic</span> and, at work, React/Next.js. I prefer
+                    <b class="text-blue-400 font-semibold">AI-driven development</b> &mdash; it's much faster, and I review every line the
+                    AI produces thoroughly &mdash; and whatever I ship, I make sure it's
+                    <span class="text-emerald-300">tested, performant, and built on an efficient architecture.</span> Let's build something
+                    exceptional together!
+                </div>
+                <div class="text-2xl leading-4 text-pink-300">&#125;</div>
             </div>
-        </div>
-
-        <div data-aos="zoom-in-left" data-aos-duration="800" class="w-full md:w-1/3 md:h-full flex items-center justify-center">
-            <app-lottie [fileName]="'about-me'" [height]="'325'"></app-lottie>
         </div>
     </div>
 
-    <div class="md:h-[45vh] flex flex-col md:flex-row grow space-y-5 md:space-y-0 space-x-0 md:space-x-5">
-        <div data-aos="zoom-in-right" data-aos-duration="800" class="md:w-1/4 md:h-full">
-            <app-lottie [fileName]="'experience'" [height]="'320'"></app-lottie>
-        </div>
-
-        <div data-aos="zoom-in-left" data-aos-duration="900" class="grow w-full md:w-3/4 cust-bounce-hover">
-            <div class="rounded-2xl relative md:h-full card-sp flex justify-center items-center">
-                <div class="bg-card-background text-white rounded-2xl p-5 h-full flex flex-col justify-evenly">
-                    <div class="text-2xl leading-4">
-                        <span class="text-violet-400">experience( )</span>
-                        <span class="text-pink-300"> &#123;</span>
-                    </div>
-
-                    <div class="py-2 text-justify leading-6">
-                        <div class="flex items-center space-x-2">
-                            <app-lottie [fileName]="'right-arrow'" [height]="'35'"></app-lottie>
-                            <div class="text-md">
-                                <span class="text-red-400 pr-1">Angular Developer</span>
-                                |
-                                <a
-                                    href="https://www.linkedin.com/company/resultier/"
-                                    target="_blank"
-                                    class="inline-flex underline cust-bounce cursor-fancy text-blue-400 hover:text-blue-700 font-semibold px-1"
-                                    >Resultier</a
-                                >
-                                |
-                                <span class="italic text-lime-200 pl-1">April 2022 - December 2022</span>
-                            </div>
-                        </div>
-
-                        <div class="pl-8 md:pl-11 text-sm leading-5">
-                            I worked, with a very diverse team of brilliant developers, on a cutting-edge health-tech application built
-                            using latest Angular versions and took charge of crafting and solving intricate frontend logic. Notably, I
-                            successfully tackled complex data-table and form interactions, including the challenging HCFA, contributing to
-                            the application's seamless and efficient user experience.
-                        </div>
-                    </div>
-
-                    <div class="py-2 text-justify leading-6">
-                        <div class="flex items-center space-x-2">
-                            <app-lottie [fileName]="'right-arrow'" [height]="'35'"></app-lottie>
-                            <div class="text-md">
-                                <span class="text-emerald-300 pr-1">Full Stack Developer</span>
-                                |
-                                <a
-                                    href="https://www.linkedin.com/company/cuebites/"
-                                    target="_blank"
-                                    class="inline-flex underline cust-bounce cursor-fancy text-blue-400 hover:text-blue-700 font-semibold px-1"
-                                    >Cuebites</a
-                                >
-                                |
-                                <span class="italic text-lime-200 pl-1">January 2023 - Present</span>
-                            </div>
-                        </div>
-
-                        <div class="pl-11 text-sm leading-5">
-                            I contributed to the development of CRM and HRM solution applications. On the frontend, I specialized in
-                            leveraging the latest Angular framework version for a seamless user experience. On the backend, I worked with
-                            microservices using NestJs and .Net Core frameworks. I took charge of writing and solving complex logic for
-                            inventory, delivery, employee management functions, and more, ensuring the applications' efficiency and
-                            effectiveness.
-                        </div>
-                    </div>
-
-                    <div class="text-2xl leading-4 text-pink-300">&#125;</div>
-                </div>
-            </div>
-        </div>
+    <div data-aos="zoom-in-left" data-aos-duration="800" class="w-full md:w-1/3 flex items-center justify-center">
+        <app-lottie [fileName]="'about-me'" [height]="'325'"></app-lottie>
     </div>
 </div>

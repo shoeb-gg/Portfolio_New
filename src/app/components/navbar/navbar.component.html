@@ -18,6 +18,14 @@
     </div>
 
     <div
+        (click)="scrollTrigger('experience')"
+        class="relative h-4/5 md:h-auto bg-nav-anchor rounded-lg md:mx-1 hover:bg-nav-hover text-nav-text hover:text-white flex md:flex-col justify-center items-center md:pt-1 md:pb-6 drop-shadow-anchor transition-all"
+    >
+        <app-lottie [fileName]="'download-resume'" [height]="'50'" [width]="'64'"></app-lottie>
+        <span class="absolute hidden md:flex bottom-0.5 font-medium">Career</span>
+    </div>
+
+    <div
         (click)="scrollTrigger('skills')"
         class="relative h-4/5 md:h-auto bg-nav-anchor rounded-lg md:mx-1 hover:bg-nav-hover text-nav-text hover:text-white flex md:flex-col justify-center items-center md:pt-1 md:pb-6 drop-shadow-anchor transition-all"
     >
