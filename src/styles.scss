@@ -95,24 +95,129 @@ body {
     }
 }
 
+// The card/icon bounce, pre-sampled at 30 frames per second from the original 7-keyframe curve
+// (0/10/30/50/58/65/100% with `ease`). Each keyframe holds for 1/30s (steps(1)), so the compositor
+// updates 30x per second instead of on every 60Hz frame, while the motion follows the same path.
 @keyframes bounce {
     0% {
         transform: scale(1, 1) translateY(0);
+        animation-timing-function: steps(1);
+    }
+    3.3333% {
+        transform: scale(1.0288, 0.9712) translateY(0);
+        animation-timing-function: steps(1);
+    }
+    6.6667% {
+        transform: scale(1.0462, 0.9538) translateY(0);
+        animation-timing-function: steps(1);
     }
     10% {
         transform: scale(1.05, 0.95) translateY(0);
+        animation-timing-function: steps(1);
+    }
+    13.3333% {
+        transform: scale(1.0279, 0.9721) translateY(-1.1034px);
+        animation-timing-function: steps(1);
+    }
+    16.6667% {
+        transform: scale(0.9924, 1.0076) translateY(-2.8793px);
+        animation-timing-function: steps(1);
+    }
+    20% {
+        transform: scale(0.9698, 1.0302) translateY(-4.012px);
+        animation-timing-function: steps(1);
+    }
+    23.3333% {
+        transform: scale(0.9575, 1.0425) translateY(-4.6241px);
+        animation-timing-function: steps(1);
+    }
+    26.6667% {
+        transform: scale(0.9517, 1.0483) translateY(-4.9174px);
+        animation-timing-function: steps(1);
     }
     30% {
         transform: scale(0.95, 1.05) translateY(-5px);
+        animation-timing-function: steps(1);
+    }
+    33.3333% {
+        transform: scale(0.9721, 1.0279) translateY(-3.8966px);
+        animation-timing-function: steps(1);
+    }
+    36.6667% {
+        transform: scale(1.0076, 0.9924) translateY(-2.1207px);
+        animation-timing-function: steps(1);
+    }
+    40% {
+        transform: scale(1.0302, 0.9698) translateY(-0.988px);
+        animation-timing-function: steps(1);
+    }
+    43.3333% {
+        transform: scale(1.0425, 0.9575) translateY(-0.3759px);
+        animation-timing-function: steps(1);
+    }
+    46.6667% {
+        transform: scale(1.0483, 0.9517) translateY(-0.0826px);
+        animation-timing-function: steps(1);
     }
     50% {
         transform: scale(1.05, 0.95) translateY(0);
+        animation-timing-function: steps(1);
     }
-    58% {
-        transform: scale(1, 1) translateY(-2px);
+    53.3333% {
+        transform: scale(1.0147, 0.9853) translateY(-1.4112px);
+        animation-timing-function: steps(1);
     }
-    65% {
+    56.6667% {
+        transform: scale(1.0008, 0.9992) translateY(-1.9669px);
+        animation-timing-function: steps(1);
+    }
+    60% {
+        transform: scale(1, 1) translateY(-1.0307px);
+        animation-timing-function: steps(1);
+    }
+    63.3333% {
+        transform: scale(1, 1) translateY(-0.0711px);
+        animation-timing-function: steps(1);
+    }
+    66.6667% {
         transform: scale(1, 1) translateY(0);
+        animation-timing-function: steps(1);
+    }
+    70% {
+        transform: scale(1, 1) translateY(0);
+        animation-timing-function: steps(1);
+    }
+    73.3333% {
+        transform: scale(1, 1) translateY(0);
+        animation-timing-function: steps(1);
+    }
+    76.6667% {
+        transform: scale(1, 1) translateY(0);
+        animation-timing-function: steps(1);
+    }
+    80% {
+        transform: scale(1, 1) translateY(0);
+        animation-timing-function: steps(1);
+    }
+    83.3333% {
+        transform: scale(1, 1) translateY(0);
+        animation-timing-function: steps(1);
+    }
+    86.6667% {
+        transform: scale(1, 1) translateY(0);
+        animation-timing-function: steps(1);
+    }
+    90% {
+        transform: scale(1, 1) translateY(0);
+        animation-timing-function: steps(1);
+    }
+    93.3333% {
+        transform: scale(1, 1) translateY(0);
+        animation-timing-function: steps(1);
+    }
+    96.6667% {
+        transform: scale(1, 1) translateY(0);
+        animation-timing-function: steps(1);
     }
     100% {
         transform: scale(1, 1) translateY(0);
