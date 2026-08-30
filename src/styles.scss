@@ -114,12 +114,9 @@ body {
     }
 }
 
-@property --gradient-angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
-}
-
+// Card border: a conic gradient painted ONCE on an oversized square, then spun with the
+// compositor-only `rotate` property. (Animating the gradient angle itself forced Chrome to
+// re-rasterize 26 card-sized gradients every frame and was ~2/3 of the page's CPU use.)
 :root {
     --clr-1: #4ade80;
     --clr-2: #2dd4bf;
@@ -135,15 +132,21 @@ body {
 
 .card-sp {
     position: relative;
+    overflow: hidden; // clips the spinning square to the card shape
+    padding: 1px; // the 1px ring the gradient shows through
+    isolation: isolate; // keeps the z-index:-1 layer behind the card content only
 
-    &::before,
-    &::after {
+    &::before {
         content: "";
         position: absolute;
-        inset: -1px;
+        top: 50%;
+        left: 50%;
+        width: 150vmax; // always larger than any card's diagonal, so no corner is ever uncovered
+        height: 150vmax;
+        translate: -50% -50%;
         z-index: -1;
         background: conic-gradient(
-            from var(--gradient-angle),
+            from 0deg,
             var(--clr-1),
             var(--clr-2),
             var(--clr-3),
@@ -164,16 +167,12 @@ body {
             var(--clr-2),
             var(--clr-1)
         );
-        border-radius: inherit;
-        animation: rotation 8s linear infinite;
+        animation: spin-border 8s linear infinite;
     }
 }
 
-@keyframes rotation {
-    0% {
-        --gradient-angle: 0deg;
-    }
-    100% {
-        --gradient-angle: 360deg;
+@keyframes spin-border {
+    to {
+        rotate: 360deg;
     }
 }
