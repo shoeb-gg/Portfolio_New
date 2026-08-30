@@ -38,6 +38,7 @@ export class LottieNativeComponent implements OnDestroy {
     private rafId: number | null = null;
     private startTime = 0;
     private lastFrame = -1;
+    private lastSlot = -1;
 
     constructor(
         private lottieTransferState: LottieTransferState,
@@ -75,8 +76,10 @@ export class LottieNativeComponent implements OnDestroy {
 
     /**
      * Frame-capped playback. Instead of Lottie's own loop (which redraws on every 60Hz tick), we
-     * compute which frame *should* be showing from the wall clock and draw it only when that
-     * index changes. Speed is unchanged; a 60fps file simply shows every 2nd frame.
+     * compute which frame *should* be showing from the wall clock and draw it only when that index
+     * changes -- and only once per global 1/MAX_FPS "slot", so every Lottie on the page updates on
+     * the same frames (two animations on alternating frames would still force 60 frames/s).
+     * Speed is unchanged; a 60fps file simply shows every 2nd frame.
      */
     private startLoop(): void {
         const animation = this.animation;
@@ -86,20 +89,24 @@ export class LottieNativeComponent implements OnDestroy {
         }
 
         const fileFps = animation.frameRate;
-        const step = Math.max(1, Math.ceil(fileFps / MAX_FPS)); // 60fps → 2, ≤30fps → 1
         const total = animation.totalFrames;
+        const slotMs = 1000 / MAX_FPS;
 
         // Resume from where we paused so re-entering the viewport does not jump.
         const resumeFrame = this.lastFrame > 0 ? this.lastFrame : 0;
         this.startTime = performance.now() - (resumeFrame / fileFps) * 1000;
 
         const tick = (now: number) => {
-            const elapsedFrames = ((now - this.startTime) / 1000) * fileFps;
-            const frame = (Math.floor(elapsedFrames / step) * step) % total;
+            const slot = Math.floor(now / slotMs);
 
-            if (frame !== this.lastFrame) {
-                animation.goToAndStop(frame, true);
-                this.lastFrame = frame;
+            if (slot !== this.lastSlot) {
+                this.lastSlot = slot;
+                const frame = Math.floor(((now - this.startTime) / 1000) * fileFps) % total;
+
+                if (frame !== this.lastFrame) {
+                    animation.goToAndStop(frame, true);
+                    this.lastFrame = frame;
+                }
             }
 
             this.rafId = requestAnimationFrame(tick);

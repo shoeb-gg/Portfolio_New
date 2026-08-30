@@ -1,7 +1,5 @@
 import { afterNextRender, Component } from '@angular/core';
 
-import anime from 'animejs/lib/anime.es.js';
-
 @Component({
     selector: 'app-name',
     templateUrl: './name.component.html',
@@ -13,21 +11,15 @@ export class NameComponent {
 
     constructor() {
         afterNextRender(() => {
+            // Wrap each non-space character so it can fade in on its own schedule.
+            // The animation itself is pure CSS (see `.ml2 .letter` in styles.scss).
             const textWrapper = document.querySelector('.ml2');
+            let index = 0;
+
             textWrapper!.innerHTML = textWrapper!.textContent!.replace(
                 /\S/g,
-                "<span class='letter'>$&</span>"
+                (char) => `<span class="letter" style="--i:${index++}">${char}</span>`
             );
-
-            anime.timeline({ loop: true }).add({
-                targets: '.ml2 .letter',
-                scale: [4, 1],
-                opacity: [0, 1],
-                translateZ: 0,
-                easing: 'easeOutExpo',
-                duration: 1500,
-                delay: (el, i) => 100 * i,
-            });
 
             setInterval(() => {
                 this.showSpace = !this.showSpace;
