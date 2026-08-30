@@ -1,13 +1,7 @@
 import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 import { provideClientHydration, withEventReplay, withIncrementalHydration } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import {
-    PreloadAllModules,
-    provideRouter,
-    withEnabledBlockingInitialNavigation,
-    withInMemoryScrolling,
-    withPreloading,
-} from '@angular/router';
+import { PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading } from '@angular/router';
 import { provideLottieOptions } from 'ngx-lottie';
 
 import { routes } from './app.routes';
@@ -18,8 +12,7 @@ export const appConfig: ApplicationConfig = {
         provideRouter(
             routes,
             withPreloading(PreloadAllModules),
-            withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
-            withEnabledBlockingInitialNavigation()
+            withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })
         ),
         provideHttpClient(withFetch()),
         provideLottieOptions({
