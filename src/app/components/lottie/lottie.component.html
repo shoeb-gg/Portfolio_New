@@ -1,3 +1,9 @@
 @if (isBrowser){
-<ng-lottie [options]="options" [width]="width" [height]="height" (animationCreated)="onAnimationCreated($event)"></ng-lottie>
+<ng-lottie
+    [options]="options"
+    [width]="width"
+    [height]="height"
+    (animationCreated)="onAnimationCreated($event)"
+    (domLoaded)="onDomLoaded()"
+></ng-lottie>
 }
