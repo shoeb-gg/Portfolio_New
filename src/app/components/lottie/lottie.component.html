@@ -1,9 +1,11 @@
-@if (isBrowser){
-<ng-lottie
-    [options]="options"
-    [width]="width"
-    [height]="height"
-    (animationCreated)="onAnimationCreated($event)"
-    (domLoaded)="onDomLoaded()"
-></ng-lottie>
-}
+<div class="inline-block align-top" [style.width.px]="boxWidth" [style.height.px]="boxHeight">
+    @if (isBrowser) {
+    <ng-lottie
+        [options]="options"
+        [width]="boxWidth + 'px'"
+        [height]="boxHeight + 'px'"
+        (animationCreated)="onAnimationCreated($event)"
+        (domLoaded)="onDomLoaded()"
+    ></ng-lottie>
+    }
+</div>

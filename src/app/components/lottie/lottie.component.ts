@@ -18,6 +18,31 @@ import type { AnimationItem } from 'lottie-web';
 /** Upper bound on how many frames per second any Lottie is drawn. Files below this keep their own rate. */
 const MAX_FPS = 30;
 
+/**
+ * width / height of each animation file. The animation itself only mounts in the browser, so the
+ * server-rendered HTML reserves a box of the final size from these ratios -- otherwise the page
+ * would shift when the animations appear (that was most of our mobile CLS).
+ */
+const ASPECT_RATIO: Record<string, number> = {
+    'about-me': 1.0,
+    'about-nav': 1.0,
+    bangladesh: 1.25,
+    contact: 1.0,
+    'download-resume': 1.7778,
+    email: 1.0,
+    experience: 1.4286,
+    hello: 1.0,
+    location: 1.0,
+    'profile-nav': 1.0,
+    projects: 1.0,
+    punch: 1.0,
+    'right-arrow': 1.0,
+    sent: 1.0,
+    'skills-nav': 0.97,
+    strength: 1.0,
+    'thumbs-up': 1.0,
+};
+
 @Component({
     selector: 'app-lottie',
     templateUrl: './lottie.component.html',
@@ -27,10 +52,16 @@ const MAX_FPS = 30;
 })
 export class LottieNativeComponent implements OnInit, OnDestroy {
     @Input() fileName: string;
+    /** Height in px. */
     @Input() height: string;
+    /** Width in px; when omitted it follows the animation's aspect ratio. */
     @Input() width: string;
 
     options: AnimationOptions;
+
+    /** Final box size, known on the server too, so the layout never shifts. */
+    boxWidth = 0;
+    boxHeight = 0;
 
     isBrowser: boolean;
 
@@ -63,8 +94,10 @@ export class LottieNativeComponent implements OnInit, OnDestroy {
             autoplay: false,
         };
 
-        this.height = `${this.height}px`;
-        this.width = `${this.width}px`;
+        this.boxHeight = Number(this.height);
+        this.boxWidth = this.width
+            ? Number(this.width)
+            : Math.round(this.boxHeight * (ASPECT_RATIO[this.fileName] ?? 1));
     }
 
     onAnimationCreated(animation: AnimationItem): void {
