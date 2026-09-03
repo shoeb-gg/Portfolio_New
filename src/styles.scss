@@ -315,3 +315,13 @@ body {
         rotate: 360deg;
     }
 }
+
+// The bottom nav holds 6 tabs; at 64px per icon box they overflow a 360px phone (6 x 64 = 384).
+// The boxes get their size from inline styles (reserved-space bindings), so a mobile override
+// needs !important. The SVGs scale to fit, so this is purely a size cap.
+@media (max-width: 767px) {
+    app-navbar app-lottie div {
+        width: 52px !important;
+        height: 44px !important;
+    }
+}

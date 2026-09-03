@@ -31,6 +31,13 @@ export class ContainerComponent {
                 delay: 80,
                 mirror: true,
             });
+
+            // AOS captures element positions at init. The font swap re-wraps the long paragraphs
+            // (especially at phone widths) and shifts everything below, which can push
+            // bottom-of-page triggers beyond the maximum scroll -- the contact cards then never
+            // animate in. Recalculate once the layout has settled.
+            document.fonts?.ready.then(() => AOS.refresh());
+            window.addEventListener('load', () => AOS.refresh(), { once: true });
         });
     }
 }
